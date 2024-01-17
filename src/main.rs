@@ -18,4 +18,9 @@
 //ders 3 i8 signed u8 unsigned but 8 bit 816 16 bit 32 bit 64 bit 128 bit diye gidiyor u128 vb.
 // arch isize usize 255 0 arası 2n-1 signed sayılar -128 127 -(2n-1) 2n-1-1
 // ihtiyacınıza uygun değeri seçin büyük olursa 16x maliyet arttırmış
-//ders 9 dayım şu an
+//fn main () {
+//  let age:u8 = 30;
+//  println!("{:#b}",age);
+//}
+//ders 9'a kadar geldim
+// doğru değişken şeyleri vb. 9 ders diğer dersleri mantık kurarak baya vakit harcayarak anladım sonra ai'ye sorara sora kodları öğreneceğim
