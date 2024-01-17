@@ -137,3 +137,21 @@ fn main() -> io::Result<()> {
     Ok(())
 }
 ornek.txt'de ki içeriği alıp yeni_ornek.txt'ye yazdırır
+use std::thread;
+use std::time::Duration;
+
+fn agir_islem() {
+    thread::sleep(Duration::from_secs(2));
+    println!("İşlem tamamlandı!");
+}
+
+fn main() {
+    println!("İşlem başladı...");
+    thread::spawn(|| {
+        agir_islem();
+    });
+    println!("İşlem devam ediyor...");
+    thread::sleep(Duration::from_secs(3));
+    println!("Ana işlem tamamlandı!");
+}
+belli bir süre geçtikten sonra İşlem Tamamlandı diyep print eder ama en başta İşlem başladı diye print eder İşlem devam ediyor ve 3 saniye sonra Ana işlem tamamlandı!
