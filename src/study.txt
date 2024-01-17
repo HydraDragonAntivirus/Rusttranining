@@ -1,0 +1,75 @@
+struct Kitap {
+    isim: String,
+    yazar: String,
+    sayfa_sayisi: u32,
+}
+
+impl Kitap {
+    fn yeni(isim: &str, yazar: &str, sayfa_sayisi: u32) -> Kitap {
+        Kitap {
+            isim: isim.to_string(),
+            yazar: yazar.to_string(),
+            sayfa_sayisi,
+        }
+    }
+
+    fn bilgi_ver(&self) {
+        println!("Kitap Adı: {}, Yazar: {}, Sayfa Sayısı: {}", self.isim, self.yazar, self.sayfa_sayisi);
+    }
+}
+
+fn main() {
+    let kitap = Kitap::yeni("1984", "George Orwell", 328);
+    kitap.bilgi_ver();
+}
+bu  Kitap Adı: 1984 ,Yazar : George Orwell , Sayfa Sayısı: 328 diye gösterir
+
+use std::collections::HashMap;
+
+fn karakter_sayisi(metin: &str) -> HashMap<char, i32> {
+    let mut harf_sayisi = HashMap::new();
+    for harf in metin.chars() {
+        let sayi = harf_sayisi.entry(harf).or_insert(0);
+        *sayi += 1;
+    }
+    harf_sayisi
+}
+
+fn main() {
+    let metin = "Merhaba, Dünya!";
+    let harf_sayisi = karakter_sayisi(metin);
+    println!("{:?}", harf_sayisi);
+}
+Merhaba, Dünya'da ki harf sayısını print eder
+
+use hyper::{Body, Request, Response, Server};
+use hyper::service::{make_service_fn, service_fn};
+
+async fn handle_request(_req: Request<Body>) -> Result<Response<Body>, hyper::Error> {
+    Ok(Response::new(Body::from("Merhaba, Dünya!")))
+}
+
+#[tokio::main]
+async fn main() {
+    let make_service = make_service_fn(|_conn| {
+        async { Ok::<_, hyper::Error>(service_fn(handle_request)) }
+    });
+
+    let addr = ([127, 0, 0, 1], 3000).into();
+    let server = Server::bind(&addr).serve(make_service);
+
+    if let Err(e) = server.await {
+        eprintln!("server error: {}", e);
+    }
+}
+localhostun yani 127.0.0.1 ile ilgili bir kod görüyorum ve http request olarak Merhaba, Dünya atıyor sanırım localhosta bağlanmaya çalışıyor ve bunu response etmeye çalışıyor
+use reqwest::Error;
+
+#[tokio::main]
+async fn main() -> Result<(), Error> {
+    let response = reqwest::get("http://localhost:3000").await?;
+    let body = response.text().await?;
+    println!("Response: {}", body);
+    Ok(())
+}
+localhost:3000'de ki şeyi alır ve print eder önceki örnekte Merhaba Dünya! diye işlemiştin
