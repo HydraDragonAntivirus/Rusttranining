@@ -2,5 +2,5 @@
 // Main fonksiyonunu oluşturmak istediğimiz için function main dekserasyonu oluşturuyoruz ve parantezler içerisinde de arıyorum ilk başta main fonksiyonunu arıyor birde süslü parantezleri arıyoruz
 //tam olarak fonksiyon denemez kırmızı çizgimiz noktalı ve her zaman koymalıyız 
 fn main() {
-    println!("Hello, world!");
-}
+    println!("Hello, rust!");
+} // ders 1 function fonksiyon main fonskiyonun println! ile print ediyoruz ve ;'yı unutmamak lazım
