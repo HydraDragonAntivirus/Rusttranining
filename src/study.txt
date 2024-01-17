@@ -73,3 +73,67 @@ async fn main() -> Result<(), Error> {
     Ok(())
 }
 localhost:3000'de ki şeyi alır ve print eder önceki örnekte Merhaba Dünya! diye işlemiştin
+use std::fs::File;
+use std::io::{self, prelude::*, BufReader};
+
+fn dosya_oku(dosya_yolu: &str) -> io::Result<()> {
+    let dosya = File::open(dosya_yolu)?;
+    let okuyucu = BufReader::new(dosya);
+
+    for satir in okuyucu.lines() {
+        let satir = satir?;
+        println!("{}", satir);
+    }
+
+    Ok(())
+}
+
+fn main() -> io::Result<()> {
+    dosya_oku("ornek.txt")?;
+    Ok(())
+}
+ornek.txt'deki satır sayısını okur ve print eder
+use std::fs::File;
+use std::io::prelude::*;
+
+fn dosya_yaz(dosya_yolu: &str, icerik: &str) -> std::io::Result<()> {
+    let mut dosya = File::create(dosya_yolu)?;
+    dosya.write_all(icerik.as_bytes())?;
+    Ok(())
+}
+
+fn main() -> std::io::Result<()> {
+    dosya_yaz("ornek.txt", "Merhaba, Dünya!")?;
+    Ok(())
+}
+ornek.txt'ye Merhaba, Dünya! yazdırır
+use std::fs::File;
+use std::io::{self, prelude::*, BufReader, BufWriter};
+
+fn dosya_oku(dosya_yolu: &str) -> io::Result<String> {
+    let dosya = File::open(dosya_yolu)?;
+    let okuyucu = BufReader::new(dosya);
+    let mut icerik = String::new();
+
+    for satir in okuyucu.lines() {
+        let satir = satir?;
+        icerik.push_str(&satir);
+        icerik.push('\n');
+    }
+
+    Ok(icerik)
+}
+
+fn dosya_yaz(dosya_yolu: &str, icerik: &str) -> io::Result<()> {
+    let dosya = File::create(dosya_yolu)?;
+    let mut yazici = BufWriter::new(dosya);
+    yazici.write_all(icerik.as_bytes())?;
+    Ok(())
+}
+
+fn main() -> io::Result<()> {
+    let icerik = dosya_oku("ornek.txt")?;
+    dosya_yaz("yeni_ornek.txt", &icerik)?;
+    Ok(())
+}
+ornek.txt'de ki içeriği alıp yeni_ornek.txt'ye yazdırır
