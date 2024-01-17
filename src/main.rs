@@ -5,10 +5,10 @@
  //   println!("Hello, rust!");
 //} // ders 1 function fonksiyon main fonskiyonun println! ile print ediyoruz ve ;'yı unutmamak lazım
 //ders 2
-fn main () {
+//fn main () {
     // mut olsun ki değiştirebilirim sonradan
-    let mut age = 30; // value assigned to age is never read çünkü onu 33 yaptım
-    age = 33; //sonradan değiştirdim
-    const PI_NUMBER: f32 = 3.14159; // pi sayısı
-    println!("{} {}" ,PI_NUMBER, age); // {]} ve age ile çağırdım veya PI Number ile iki kez çağırma
-} 
+    //let mut age = 30; // value assigned to age is never read çünkü onu 33 yaptım
+    //age = 33; //sonradan değiştirdim
+    //const PI_NUMBER: f32 = 3.14159; // pi sayısı
+  //  println!("{} {}" ,PI_NUMBER, age); // {]} ve age ile çağırdım veya PI Number ile iki kez çağırma
+//} 
