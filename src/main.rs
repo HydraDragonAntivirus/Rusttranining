@@ -24,3 +24,4 @@
 //}
 //ders 9'a kadar geldim
 // doğru değişken şeyleri vb. 9 ders diğer dersleri mantık kurarak baya vakit harcayarak anladım sonra ai'ye sorara sora kodları öğreneceğim
+// I finished the course yay!
