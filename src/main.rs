@@ -25,3 +25,22 @@
 //ders 9'a kadar geldim
 // doğru değişken şeyleri vb. 9 ders diğer dersleri mantık kurarak baya vakit harcayarak anladım sonra ai'ye sorara sora kodları öğreneceğim
 // I finished the course yay!
+fn main () {
+let mut x = 5;
+println!("x'in degeri: {}",x);
+x = 6;
+println!("x'in degeri 2{}",x);
+ print!("Hello World!");
+ selam_ver("Dunya");
+}
+fn selam_ver (isim: &str) {
+println! ( "Merhaba, {}!",isim);
+}
+fn text () {
+    let sayi = 3;
+    if sayi < 5 {
+        println! ("sayi 5'den kucukmus");
+     } else {
+     println!("sayi 5'ten buyuk veya esit")
+    }
+}
