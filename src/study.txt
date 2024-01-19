@@ -155,3 +155,11 @@ fn main() {
     println!("Ana işlem tamamlandı!");
 }
 belli bir süre geçtikten sonra İşlem Tamamlandı diyep print eder ama en başta İşlem başladı diye print eder İşlem devam ediyor ve 3 saniye sonra Ana işlem tamamlandı!
+fn main() {
+    let mut sayac = 0;
+
+    while sayac < 5 {
+        println!("sayac = {}", sayac);
+        sayac += 1;
+    }
+}
